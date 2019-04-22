@@ -41,3 +41,11 @@ function getPaginationArray($iCurPage, $iEndPage, $onLeft = 2, $onRight = 2)
     
     return array_merge(array_merge($leftRemainders, $leftPart), $rightPart);
 }
+
+// Return declension of word
+function declensionOfWord($number, $one, $two, $five)
+{
+    $words = array($one, $two, $five);
+    $cases = array(2, 0, 1, 1, 1, 2);
+    return $words[($number % 100 > 4 && $number % 100 < 20) ? 2 : $cases[min($number % 10, 5)]];
+}
